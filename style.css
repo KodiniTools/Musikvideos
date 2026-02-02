@@ -13,7 +13,28 @@ body {
     flex-direction: column;
     gap: 40px;
     max-width: 1000px;
+    max-height: 85vh;
+    overflow-y: auto;
     margin: 0 auto;
+    padding-right: 10px;
+}
+
+.video-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.video-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.video-container::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 10px;
+}
+
+.video-container::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
 
 .video-card {
@@ -23,6 +44,13 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Video links, Text rechts */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.video-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
 }
 
 .video-wrapper video {
