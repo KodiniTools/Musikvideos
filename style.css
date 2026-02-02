@@ -13,27 +13,26 @@ body {
     flex-direction: column;
     gap: 40px;
     max-width: 1000px;
-    max-height: 85vh;
-    overflow-y: auto;
     margin: 0 auto;
     padding-right: 10px;
+    padding-bottom: 40px;
 }
 
-.video-container::-webkit-scrollbar {
+/* Scrollbar für die ganze Seite */
+body::-webkit-scrollbar {
     width: 8px;
 }
 
-.video-container::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background: #1a1a1a;
-    border-radius: 10px;
 }
 
-.video-container::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background: #00d4ff;
     border-radius: 10px;
 }
 
-.video-container::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
     background: #fff;
 }
 
@@ -116,6 +115,8 @@ body {
 
 .button-group .btn-download {
     margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .video-card {
