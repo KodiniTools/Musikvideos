@@ -25,6 +25,13 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+.video-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
 .video-wrapper video {
     width: 100%;
     display: block;
