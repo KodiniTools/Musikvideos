@@ -69,6 +69,16 @@ body {
     transform: scale(1.05);
 }
 
+.btn-pdf {
+    background-color: #e74c3c;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.btn-pdf:hover {
+    background-color: #c0392b;
+}
+
 .video-card {
     margin-bottom: 30px;
     border: 1px solid #333;
