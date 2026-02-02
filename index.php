@@ -39,9 +39,12 @@
 
             if (file_exists($txtFile)) {
                 $lyricsContent = nl2br(htmlspecialchars(file_get_contents($txtFile)));
-            } elseif (file_exists($pdfFile)) {
-                $lyricsContent = "Tekst je dostupan kao PDF dokument.";
+            }
+            if (file_exists($pdfFile)) {
                 $pdfDownload = $pdfFile;
+                if (!file_exists($txtFile)) {
+                    $lyricsContent = "Tekst je dostupan kao PDF dokument.";
+                }
             }
             ?>
             <section class="video-card">
@@ -55,11 +58,13 @@
                     <div class="lyrics-box">
                         <span class="lyrics-label">Hrvatski Tekst:</span>
                         <p class="lyrics"><?php echo $lyricsContent; ?></p>
+                    </div>
+                    <div class="button-group">
+                        <a href="<?php echo $video; ?>" download class="btn-download">Preuzmi Video</a>
                         <?php if ($pdfDownload): ?>
                             <a href="<?php echo $pdfDownload; ?>" download class="btn-download btn-pdf">Preuzmi PDF</a>
                         <?php endif; ?>
                     </div>
-                    <a href="<?php echo $video; ?>" download class="btn-download">Preuzmi Video</a>
                 </div>
             </section>
             <?php
