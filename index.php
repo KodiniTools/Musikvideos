@@ -16,7 +16,7 @@
 <main class="video-container">
     <?php
     $videoDir = 'videos/';
-    $videos = glob($videoDir . "*.mp4");
+    $videos = glob($videoDir . "*.{mp4,webm}", GLOB_BRACE);
 
     if (empty($videos)) {
         echo "<p style='text-align:center;'>Trenutno nema video zapisa u mapi.</p>";
@@ -27,6 +27,8 @@
         foreach ($videos as $video) {
             $filename = basename($video);
             $baseName = pathinfo($filename, PATHINFO_FILENAME);
+            $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+            $mimeType = ($extension === 'webm') ? 'video/webm' : 'video/mp4';
             $title = str_replace("_", " ", $baseName);
             
             // Pfad zur passenden Textdatei suchen (z.B. Rijeka.txt oder Rijeka.pdf)
@@ -45,7 +47,7 @@
             <section class="video-card">
                 <div class="video-wrapper">
                     <video controls preload="metadata">
-                        <source src="<?php echo $video; ?>" type="video/mp4">
+                        <source src="<?php echo $video; ?>" type="<?php echo $mimeType; ?>">
                     </video>
                 </div>
                 <div class="video-info">
