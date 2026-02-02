@@ -29,12 +29,17 @@
             $baseName = pathinfo($filename, PATHINFO_FILENAME);
             $title = str_replace("_", " ", $baseName);
             
-            // Pfad zur passenden Textdatei suchen (z.B. Rijeka.txt)
-            $lyricsFile = $videoDir . $baseName . ".txt";
+            // Pfad zur passenden Textdatei suchen (z.B. Rijeka.txt oder Rijeka.pdf)
+            $txtFile = $videoDir . $baseName . ".txt";
+            $pdfFile = $videoDir . $baseName . ".pdf";
             $lyricsContent = "Tekst pjesme trenutno nije dostupan.";
+            $pdfDownload = null;
 
-            if (file_exists($lyricsFile)) {
-                $lyricsContent = nl2br(htmlspecialchars(file_get_contents($lyricsFile)));
+            if (file_exists($txtFile)) {
+                $lyricsContent = nl2br(htmlspecialchars(file_get_contents($txtFile)));
+            } elseif (file_exists($pdfFile)) {
+                $lyricsContent = "Tekst je dostupan kao PDF dokument.";
+                $pdfDownload = $pdfFile;
             }
             ?>
             <section class="video-card">
@@ -48,6 +53,9 @@
                     <div class="lyrics-box">
                         <span class="lyrics-label">Hrvatski Tekst:</span>
                         <p class="lyrics"><?php echo $lyricsContent; ?></p>
+                        <?php if ($pdfDownload): ?>
+                            <a href="<?php echo $pdfDownload; ?>" download class="btn-download btn-pdf">Preuzmi PDF</a>
+                        <?php endif; ?>
                     </div>
                     <a href="<?php echo $video; ?>" download class="btn-download">Preuzmi Video</a>
                 </div>
