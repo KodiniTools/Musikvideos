@@ -115,6 +115,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .button-group .btn-download {
     margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .video-card {
