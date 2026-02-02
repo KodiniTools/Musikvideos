@@ -13,7 +13,28 @@ body {
     flex-direction: column;
     gap: 40px;
     max-width: 1000px;
+    max-height: 85vh;
+    overflow-y: auto;
     margin: 0 auto;
+    padding-right: 10px;
+}
+
+.video-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.video-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.video-container::-webkit-scrollbar-thumb {
+    background: #00d4ff;
+    border-radius: 10px;
+}
+
+.video-container::-webkit-scrollbar-thumb:hover {
+    background: #fff;
 }
 
 .video-card {
