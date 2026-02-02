@@ -39,9 +39,12 @@
 
             if (file_exists($txtFile)) {
                 $lyricsContent = nl2br(htmlspecialchars(file_get_contents($txtFile)));
-            } elseif (file_exists($pdfFile)) {
-                $lyricsContent = "Tekst je dostupan kao PDF dokument.";
+            }
+            if (file_exists($pdfFile)) {
                 $pdfDownload = $pdfFile;
+                if (!file_exists($txtFile)) {
+                    $lyricsContent = "Tekst je dostupan kao PDF dokument.";
+                }
             }
             ?>
             <section class="video-card">
