@@ -79,6 +79,17 @@ body {
     background-color: #c0392b;
 }
 
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-group .btn-download {
+    margin-top: 0;
+}
+
 .video-card {
     margin-bottom: 30px;
     border: 1px solid #333;
