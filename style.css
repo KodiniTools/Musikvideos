@@ -4,9 +4,6 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 20px;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
 }
 
 header {
@@ -21,29 +18,26 @@ header {
     flex-direction: column;
     gap: 40px;
     max-width: 1000px;
-    max-height: calc(100vh - 150px);
-    overflow-y: auto;
     margin: 0 auto;
     padding-right: 10px;
     padding-bottom: 40px;
 }
 
-/* Scrollbar für Video-Container */
-.video-container::-webkit-scrollbar {
+/* Scrollbar für die ganze Seite */
+body::-webkit-scrollbar {
     width: 8px;
 }
 
-.video-container::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background: #1a1a1a;
-    border-radius: 10px;
 }
 
-.video-container::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
     background: #00d4ff;
     border-radius: 10px;
 }
 
-.video-container::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
     background: #fff;
 }
 
@@ -52,8 +46,10 @@ header {
     border-radius: 15px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Video links, Text rechts */
+    grid-template-columns: 1fr 1fr;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    border: 1px solid #333;
 }
 
 .video-wrapper {
@@ -75,20 +71,34 @@ header {
     justify-content: center;
 }
 
+.lyrics-box {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.lyrics-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #00d4ff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
 .lyrics {
     font-style: italic;
-    color: #ccc;
-    line-height: 1.6;
+    color: #eee;
+    line-height: 1.8;
+    margin: 0;
+    font-size: 0.95rem;
     border-left: 3px solid #00d4ff;
     padding-left: 15px;
 }
 
-/* Optimierung für mobile Geräte */
-@media (max-width: 768px) {
-    .video-card {
-        grid-template-columns: 1fr; /* Text unter das Video */
-    }
-}
 .btn-download {
     display: inline-block;
     margin-top: 15px;
@@ -110,7 +120,6 @@ header {
 .btn-pdf {
     background-color: #e74c3c;
     color: #fff;
-    margin-right: 10px;
 }
 
 .btn-pdf:hover {
@@ -130,41 +139,17 @@ header {
     box-sizing: border-box;
 }
 
-.video-card {
-    margin-bottom: 30px;
-    border: 1px solid #333;
-}
-.lyrics-box {
-    margin: 20px 0;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    max-height: 250px;
-    overflow-y: auto; /* Falls der Text sehr lang ist */
-}
-
-.lyrics-label {
-    display: block;
-    font-size: 0.8rem;
-    color: #00d4ff;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.lyrics {
-    font-style: italic;
-    color: #eee;
-    line-height: 1.8;
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-/* Scrollbar für die Lyrics-Box verschönern */
 .lyrics-box::-webkit-scrollbar {
     width: 5px;
 }
+
 .lyrics-box::-webkit-scrollbar-thumb {
     background: #333;
     border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .video-card {
+        grid-template-columns: 1fr;
+    }
 }
